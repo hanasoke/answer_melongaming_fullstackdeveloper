@@ -27,10 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
   imageUpload.addEventListener('change', (event) => {
     const file = event.target.files[0];
     if (!file.type.startsWith('image/')) {
-      uploadError.textContent = 'Please upload a valid image file.';
+      uploadError.textContent = 'Please upload a valid image file';
+      uploadError.classList.remove('d-none');
       return;
     }
     uploadError.textContent = '';
+    uploadError.classList.add('d-none');
 
     const reader = new FileReader();
     reader.onload = (e) => {
